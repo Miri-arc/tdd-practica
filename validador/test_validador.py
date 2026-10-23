@@ -1,4 +1,3 @@
-# validador/test_validador.py
 import unittest
 from validador.validador import validar_password
 
@@ -12,4 +11,6 @@ class TestValidarPassword(unittest.TestCase):
         res = validar_password("Abcdefg1!")
         # Solo verificamos que NO tenga error de longitud
         self.assertNotIn("Mínimo 8 caracteres", res["errores"])
- 
+
+if __name__ == '__main__':
+    unittest.main()
