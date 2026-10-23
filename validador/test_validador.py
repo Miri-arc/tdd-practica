@@ -11,10 +11,15 @@ class TestValidarPassword(unittest.TestCase):
         res = validar_password("Abcdefg1!")
         # Solo verificamos que NO tenga error de longitud
         self.assertNotIn("Mínimo 8 caracteres", res["errores"])
+
     def test_sin_minuscula(self):
         res = validar_password("ABCDEFG1!")
         self.assertFalse(res["valida"])
         self.assertIn("Al menos una minúscula", res["errores"])
+    def test_sin_digito(self):
+        res = validar_password("Abcdefgh!")
+        self.assertFalse(res["valida"])
+        self.assertIn("Al menos un dígito", res["errores"])
 
 if __name__ == '__main__':
     unittest.main()
